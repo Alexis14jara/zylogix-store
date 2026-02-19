@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | ZyLogix</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.svg">
+
+    <!-- Meta Tags -->
+    <meta name="description"
+        content="Conocé a ZyLogix: tu tienda de tecnología de confianza en Paraguay. Descubrí nuestra historia, misión y los valores que nos impulsan cada día.">
+    <meta name="keywords"
+        content="ZyLogix, sobre nosotros, tienda tecnológica Paraguay, equipo ZyLogix, misión visión, smartwatches, auriculares Paraguay">
+    <meta name="author" content="NovinhoDev">
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="index, follow">
+
+    <style>
+        /* ── Page-specific styles ── */
+
+        /* Hero */
+        .about-hero {
+            margin-top: 65px;
+            min-height: 360px;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 60px 20px;
+        }
+
+        .about-hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 1;
+        }
+
+        .about-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -40%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            z-index: 1;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero-content .eyebrow {
+            display: inline-block;
+            color: var(--color-primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+        }
+
+        .about-hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            line-height: 1.05;
+        }
+
+        .about-hero-content h1 span {
+            color: var(--color-primary);
+            text-shadow: 0 0 30px rgba(0, 230, 118, 0.4);
+        }
+
+        .about-hero-content p {
+            font-size: 1.1rem;
+            color: var(--color-text-muted);
+            font-weight: 300;
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Sections spacing */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .about-section+.about-section {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Intro split */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-label {
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 14px;
+        }
+
+        .intro-grid h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .intro-grid h2 span {
+            color: var(--color-primary);
+        }
+
+        .intro-grid p {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .intro-visual {
+            background: var(--color-card);
+            border: 1px solid rgba(0, 230, 118, 0.15);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0, 230, 118, 0.07) 0%, transparent 70%);
+        }
+
+        .intro-visual .big-stat {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro-visual .stat-label {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Values grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .value-card {
+            background: var(--color-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 32px 28px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--color-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        @media (hover: hover) {
+            .value-card:hover {
+                border-color: rgba(0, 230, 118, 0.3);
+                transform: translateY(-6px);
+                box-shadow: 0 10px 40px -10px rgba(0, 230, 118, 0.1);
+            }
+
+            .value-card:hover::before {
+                transform: scaleX(1);
+            }
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 18px;
+        }
+
+        .value-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .value-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Stats bar */
+        #stats-container {
+            margin-top: 70px;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .stat-item {
+            background: var(--color-card);
+            padding: 36px 24px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            display: block;
+        }
+
+        .stat-desc {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: block;
+        }
+
+        /* Mission/Vision pills */
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 48px;
+        }
+
+        .mv-card {
+            background: var(--color-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 36px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mv-card::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(0, 230, 118, 0.08) 0%, transparent 70%);
+        }
+
+        .mv-badge {
+            display: inline-block;
+            background: rgba(0, 230, 118, 0.1);
+            color: var(--color-primary);
+            border: 1px solid rgba(0, 230, 118, 0.25);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 30px;
+            margin-bottom: 18px;
+        }
+
+        .mv-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        .mv-card p {
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            font-size: 0.97rem;
+        }
+
+        /* CTA strip */
+        .cta-strip {
+            background: linear-gradient(135deg, rgba(0, 230, 118, 0.08) 0%, rgba(0, 179, 92, 0.05) 100%);
+            border: 1px solid rgba(0, 230, 118, 0.15);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-strip::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% -20%, rgba(0, 230, 118, 0.12) 0%, transparent 60%);
+        }
+
+        .cta-strip h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .cta-strip h2 span {
+            color: var(--color-primary);
+        }
+
+        .cta-strip p {
+            color: var(--color-text-muted);
+            font-size: 1rem;
+            margin-bottom: 30px;
+            position: relative;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-primary);
+            color: black;
+            font-weight: 800;
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 16px 36px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .btn-primary:hover {
+            background: white;
+            box-shadow: 0 0 30px rgba(0, 230, 118, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-header .eyebrow {
+            color: var(--color-primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .section-header h2 span {
+            color: var(--color-primary);
+        }
+
+        .section-header p {
+            color: var(--color-text-muted);
+            margin-top: 14px;
+            font-size: 1rem;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            .intro-grid,
+            .mv-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .cta-strip {
+                padding: 40px 24px;
+            }
+
+            .about-section {
+                padding: 56px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── HEADER ── -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="../" class="logo">
+                <img src="../assets/images/logo.svg" alt="ZyLogix Logo" class="logo-img">
+                Zy<span>Logix</span>
+            </a>
+            <div class="header-actions">
+                <a href="../"
+                    style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.2s;"
+                    onmouseover="this.style.color='var(--color-primary)'"
+                    onmouseout="this.style.color='var(--color-text-muted)'">
+                    ← Volver a la tienda
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── HERO ── -->
+    <section class="about-hero" aria-label="Encabezado Sobre Nosotros">
+        <div class="about-hero-content">
+            <span class="eyebrow">Nuestra historia</span>
+            <h1>Somos <span>ZyLogix</span></h1>
+            <p>Una tienda paraguaya apasionada por la tecnología, comprometida con brindarte los mejores productos al
+                mejor precio.</p>
+        </div>
+    </section>
+
+    <!-- ── INTRO SPLIT ── -->
+    <section class="about-section" aria-labelledby="intro-heading">
+        <div class="container">
+            <div class="intro-grid">
+                <div>
+                    <p class="intro-label">Quiénes somos</p>
+                    <h2 id="intro-heading">Tecnología que <span>conecta</span> personas</h2>
+                    <p>ZyLogix nació con una idea simple: que cada paraguayo tenga acceso a tecnología de calidad sin
+                        complicaciones. Somos una tienda 100 % digital con envíos a todo el país, operada por un equipo
+                        joven, apasionado y comprometido con tu satisfacción.</p>
+                    <p>Desde auriculares y smartwatches hasta accesorios gamer, seleccionamos cuidadosamente cada
+                        producto para ofrecerte lo mejor del mercado. Tu experiencia de compra es nuestra prioridad.</p>
+                </div>
+                <div class="intro-visual">
+                    <div class="big-stat">+1K</div>
+                    <p class="stat-label">Clientes satisfechos en todo Paraguay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STATS ── -->
+    <section class="about-section" style="padding-top: 0;" aria-label="Estadísticas">
+        <div class="container" id="stats-container">
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">+12</span>
+                    <span class="stat-desc">Marcas disponibles</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">+50</span>
+                    <span class="stat-desc">Productos en catálogo</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24 h</span>
+                    <span class="stat-desc">Soporte por WhatsApp</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-desc">Comprometidos con la calidad</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── MISIÓN / VISIÓN ── -->
+    <section class="about-section" aria-labelledby="mv-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Lo que nos mueve</span>
+                <h2 id="mv-heading">Misión &amp; <span>Visión</span></h2>
+            </div>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <span class="mv-badge">Misión</span>
+                    <h3>Acercar la tecnología a todos</h3>
+                    <p>Nuestra misión es democratizar el acceso a gadgets y accesorios tecnológicos de calidad en
+                        Paraguay, ofreciendo precios competitivos, atención personalizada y envíos confiables a cada
+                        rincón del país.</p>
+                </div>
+                <div class="mv-card">
+                    <span class="mv-badge">Visión</span>
+                    <h3>Ser la referencia tech del país</h3>
+                    <p>Aspiramos a convertirnos en la tienda de tecnología más confiable y reconocida de Paraguay,
+                        expandiendo nuestro catálogo continuamente e incorporando las últimas innovaciones del mercado
+                        global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── VALORES ── -->
+    <section class="about-section" aria-labelledby="values-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Nuestros valores</span>
+                <h2 id="values-heading">Por qué elegir <span>ZyLogix</span></h2>
+                <p>Cada decisión que tomamos está guiada por principios que ponen al cliente en el centro.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Calidad garantizada</h3>
+                    <p>Todos nuestros productos pasan por un proceso de selección riguroso. Solo trabajamos con marcas y
+                        distribuidores confiables.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Envíos rápidos</h3>
+                    <p>Hacemos envíos a todo el territorio paraguayo, coordinando con transportadoras confiables para
+                        que tu pedido llegue en tiempo y forma.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💬</div>
+                    <h3>Atención cercana</h3>
+                    <p>Somos accesibles por WhatsApp. Respondemos rápido, con trato humano y sin respuestas automáticas
+                        genéricas.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔒</div>
+                    <h3>Compra segura</h3>
+                    <p>Tu satisfacción es nuestra garantía. Si hay algún problema con tu pedido, lo resolvemos sin
+                        vueltas.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Innovación constante</h3>
+                    <p>Actualizamos nuestro catálogo seguido para que siempre encuentres los gadgets más nuevos y
+                        relevantes del mercado.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Compromiso local</h3>
+                    <p>Somos un emprendimiento paraguayo que cree en el comercio local. Cada compra apoya el crecimiento
+                        de nuestro equipo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="about-section" aria-label="Llamada a la acción">
+        <div class="container">
+            <div class="cta-strip">
+                <h2>¿Listo para tu próximo <span>gadget</span>?</h2>
+                <p>Explorá nuestro catálogo completo y encontrá la tecnología perfecta para vos. Envíos a todo Paraguay.
+                    🇵🇾</p>
+                <a href="../" class="btn-primary">Ver catálogo →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="../index.html" class="logo" style="margin-bottom: 20px;">Zy<span>Logix</span></a>
+                <p style="color: #888; line-height: 1.6;">
+                    Tu tienda de confianza para la mejor tecnología del mercado. Envíos a todo el país.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                    <a href="#" class="social-icon" aria-label="Facebook">📘</a>
+                    <a href="#" class="social-icon" aria-label="Twitter">🐦</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="../">Inicio</a></li>
+                    <li><a href="../#productsContainer">Productos</a></li>
+                    <li><a href="../sobre-nosotros/">Sobre Nosotros</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Atención al Cliente</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <ul>
+                    <li>📍 Ñemby, Paraguay</li>
+                    <li>📞 +595 983 092 018</li>
+                    <li>✉️ novinhodev@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ZyLogix. Desarrollado por NovinhoDev</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
