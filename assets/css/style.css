@@ -656,6 +656,10 @@ header {
     background: #ff9800;
     color: black;
 }
+.product-label.sinstock {
+    background: #fc2222;
+    color: white;
+}
 
 /* --- CAROUSEL --- */
 .section-title {

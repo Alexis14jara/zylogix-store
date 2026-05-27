@@ -14,7 +14,7 @@ const products = [
             "./assets/products/wave-flex-1.webp",
             "./assets/products/wave-flex-2.webp",
         ],
-        label: "Oferta",
+        label: "SIN STOCK",
         sold: 120,
         description:
             "El auricular inalámbrico JBL Wave Flex Bluetooth está diseñado para brindar una experiencia de audio inalámbrica y conveniente. Ofrece una combinación de calidad de sonido, comodidad y funcionalidad. Utiliza la tecnología Bluetooth para establecer una conexión inalámbrica con tus dispositivos compatibles, como teléfonos inteligentes, tabletas o computadoras. Esto te permite disfrutar de tu música, podcasts o llamadas telefónicas sin la necesidad de cables molestos. Cuenta con un diseño ergonómico y ligero que se adapta cómodamente a tus oídos. Está equipado con almohadillas suaves y flexibles, lo que permite un uso prolongado sin causar molestias.",
@@ -371,6 +371,9 @@ function createProductCard(product, index = 0) {
                 break;
             case "últimas unidades":
                 labelClass = "ultimas";
+                break;
+            case "sin stock":
+                labelClass = "sinstock";
                 break;
             default:
                 labelClass = "";
